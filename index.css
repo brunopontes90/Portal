@@ -1,14 +1,14 @@
 .botao-flutuante {
-    position: fixed;
-    bottom: 20px;
-    right: 20px; /* Altere de "left" para "right" */
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
+    right: 20px;
     width: 50px;
+    bottom: 20px;
+    border: none;
     height: 50px;
+    color: #fff;
     font-size: 24px;
-    text-align: center;
     cursor: pointer;
+    position: fixed;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #007bff;
 }
