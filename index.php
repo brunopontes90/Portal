@@ -13,63 +13,7 @@
         <title>Portal de Usuários</title>
     </head>
     <body>
-        <?php
-            require_once 'Database/connect.php';
-
-            $result = array();
-            $sql = "SELECT * FROM Pessoas";
-
-            // Verifique se $connect_bank está definido
-            if (isset($connect_bank)) {
-                $result = $connect_bank->query($sql)->fetchAll();
-            }
-        ?>
-        <div class="container-fluid">
-            <div>
-                <h1 class="text-uppercase text-center mt-5 font-weight-bold">Portal de Usuários</h1>
-            </div>
-            <div class="mt-4 text-center">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Nascimento</th>
-                            <th scope="col">Genero</th>
-                            <th scope="col">Endereço</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Criado em</th>
-                            <th scope="col">Admin</th>
-                            <th scope="col">Observação</th>
-                            <th scope="col">Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <?php foreach($result as $row) {?>
-                                <th scope="row"><?=$row['ID']?></th>
-                                <td><?=$row['Nome'] . ' ' . $row['Sobrenome']?></td>
-                                <td><?=date('d/m/Y', strtotime($row['DataNascimento']))?></td>
-                                <td><?=$row['Genero']?></td>
-                                <td><?=$row['Endereco']?></td>
-                                <td><?=$row['Telefone']?></td>
-                                <td><?=$row['Email']?></td>
-                                <td><?=date('d/m/Y', strtotime($row['DataCriacao']))?></td>
-                                <td><?=$row['EAdmin'] == 1 ? 'Sim': 'Não'?></td>
-                                <td><?=$row['Observacoes']?></td>
-                                <td>
-                                    <button onclick="alert('Editado')">Editar</button>
-                                    <button onclick="alert('Excluido')">Excluir</button>
-                                </td>
-                            <?php }?>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                <button class="botao-flutuante" onclick="alert('Adicionado')">+</button>
-            </div>
-        </div>
+        <?php include_once 'Pages/admin/admin.php';?>
+        
     </body>
 </html>
