@@ -14,7 +14,7 @@
     </head>
     <body>
         <?php
-            require_once '../../Database/connect.php';
+            require_once __DIR__ . '/../../Database/connect.php';
 
             $result = array();
             $sql = "SELECT * FROM Pessoas";
