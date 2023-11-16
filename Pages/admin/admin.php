@@ -45,9 +45,9 @@
                             <th scope="col">Ação</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <?php foreach($result as $row) {?>
+                    <?php foreach($result as $row) {?>
+                        <tbody>
+                            <tr>
                                 <th scope="row"><?=$row['ID']?></th>
                                 <td><?=$row['Nome'] . ' ' . $row['Sobrenome']?></td>
                                 <td><?=date('d/m/Y', strtotime($row['DataNascimento']))?></td>
@@ -62,9 +62,9 @@
                                     <button onclick="alert('Editado')">Editar</button>
                                     <button onclick="alert('Excluido')">Excluir</button>
                                 </td>
-                            <?php }?>
-                        </tr>
-                    </tbody>
+                            </tr>
+                        </tbody>
+                    <?php }?>
                 </table>
             </div>
             <div>
