@@ -27,8 +27,13 @@ if(isset($_SESSION['login'])) {
         $_SESSION['ID'] = $result[0]->ID;
         $_SESSION['EAdmin'] = $result[0]->EAdmin;
 
-        // redireciona para a tela admin
-        header('Location: ../Pages/admin/admin.php');
+        if($_SESSION['EAdmin'] = $result[0]->EAdmin == 1){
+            // redireciona para a tela admin
+            header('Location: ../Pages/admin/admin.php');
+        }else {
+            // redireciona para a tela usuario comum
+            header('Location: ../Pages/user/user.php'); 
+        }
 
     }else{
         header('Location: ../index.php'); //se nao estiver entra no form

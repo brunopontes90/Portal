@@ -23,7 +23,7 @@
             </div>
             <div class="mt-3">
                 <label for="login" class="font-weight-bold text-muted">Senha</label>
-                <input type="password" class="form-control" name="senha" placeholder="Email" required autofocus>
+                <input type="password" class="form-control" name="senha" placeholder="Senha" required autofocus>
             </div>
             <div class="mt-5">
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="entrar">Entrar</button>
