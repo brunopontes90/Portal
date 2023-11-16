@@ -39,18 +39,18 @@
                             <th scope="col">Email</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <?php foreach($result as $row) {?>
+                    <?php foreach($result as $row) {?>
+                        <tbody>
+                            <tr>
                                 <td scope="row"><?=$row['Nome'] . ' ' . $row['Sobrenome']?></td>
                                 <td><?=date('d/m/Y', strtotime($row['DataNascimento']))?></td>
                                 <td><?=$row['Genero']?></td>
                                 <td><?=$row['Endereco']?></td>
                                 <td><?=$row['Telefone']?></td>
                                 <td><?=$row['Email']?></td>
-                            <?php }?>
-                        </tr>
-                    </tbody>
+                            </tr>
+                        </tbody>      
+                    <?php }?>
                 </table>
             </div>
             <div>
