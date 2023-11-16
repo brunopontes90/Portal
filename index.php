@@ -12,7 +12,10 @@
         <title>Portal de Usuários</title>
     </head>
     <body class="container">
-        <form class="form shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="text-danger text-center">
+            <?php if (isset($msg)) echo $msg; ?>
+        </div>
+        <form class="form shadow-lg p-3 mb-5 bg-white rounded" method="POST" action="Backend/login.php">
             <h1 class="text-center font-weight-bold">Login</h1>
             <div class="mt-2">
                 <label for="login" class="font-weight-bold text-muted">Email</label>
@@ -20,7 +23,7 @@
             </div>
             <div class="mt-3">
                 <label for="login" class="font-weight-bold text-muted">Senha</label>
-                <input type="password" class="form-control" name="login" placeholder="Email" required autofocus>
+                <input type="password" class="form-control" name="senha" placeholder="Email" required autofocus>
             </div>
             <div class="mt-5">
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="entrar">Entrar</button>
