@@ -16,7 +16,7 @@
             <?php if(isset($_SESSION['login'])) {?>
                 <div class="d-flex mr-5">
                     <p class="h4 mr-4">Olá, <?=$_SESSION['login']?></p>
-                    <a href="./php/exit.php" class="h4 nav-icon mx-3">
+                    <a href="../../Backend/exit.php" class="h4 nav-icon mx-3">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </div>
