@@ -44,7 +44,7 @@
                             <tr>
                                 <td scope="row"><?=$row['Nome'] . ' ' . $row['Sobrenome']?></td>
                                 <td><?=date('d/m/Y', strtotime($row['DataNascimento']))?></td>
-                                <td><?=$row['Genero']?></td>
+                                <td><?=$row['Genero'] == 'Masculino' ? 'M' : 'F' ?></td>
                                 <td><?=$row['Endereco']?></td>
                                 <td><?=$row['Telefone']?></td>
                                 <td><?=$row['Email']?></td>
