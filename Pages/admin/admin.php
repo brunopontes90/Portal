@@ -64,13 +64,18 @@
                                 <td><?=$row['EAdmin'] == 1 ? 'Sim': 'Não'?></td>
                                 <td><?=$row['Observacoes']?></td>
                                 <td>
-                                    <button onclick="alert('Editado')">Editar</button>
-                                    <button onclick="alert('Excluido')">Excluir</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-edit-info">Editar</button>
+                                    <button class="btn btn-danger" onclick="alert('Excluido')">Excluir</button>
                                 </td>
                             </tr>
                         </tbody>
                     <?php }?>
                 </table>
+                <div>
+                    <?php
+                        include '../components/modal-edit/modal-edit-info.php';
+                    ?>
+                </div>
             </div>
             <div>
                 <button class="botao-flutuante" onclick="alert('Adicionado')">+</button>
