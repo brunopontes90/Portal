@@ -27,20 +27,12 @@ class Connect {
 
         if (count($result) == 1) {
             session_start();
-    
-            //Cria vetor no SESSION para o login do user e verifica se existe esse login nas outras paginas
-            $_SESSION['login'] = $result[0]->Nome;
+            $_SESSION['Email'] = $result[0]->Nome;
             $_SESSION['ID'] = $result[0]->ID;
-            $_SESSION['EAdmin'] = $result[0]->EAdmin;
-    
-            if($_SESSION['EAdmin'] = $result[0]->EAdmin == 1){
-                header('Location: ../Pages/admin/admin.php');
-            }else {
-                header('Location: ../Pages/user/user.php'); 
-            }
+            return true;
     
         }else{
-            header('Location: ../index.php'); //se nao estiver entra no form
+            return false;
         }
     }
 }
