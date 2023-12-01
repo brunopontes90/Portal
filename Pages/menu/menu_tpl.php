@@ -3,7 +3,11 @@
     include_once '../../Database/connect.php';
     $connect = new Connect();
     $connectDatabase = $connect->Connection();
-    $queryLogin = $connect->Login();
+
+    if(isset($_SESSION['ID'])){
+        $userInfo = $connect->getUserInfo($_SESSION['ID']);
+        $userName = $userInfo['Nome'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,9 +24,9 @@
 <body>
     <header class="d-flex justify-content-end shadow-sm p-3 mb-5 bg-white rounded p-3">
         <div>
-            <?php if(isset($_SESSION['login'])) {?>
+            <?php if(isset($_SESSION['ID'])) {?>
                 <div class="d-flex mr-5">
-                    <p class="h4 mr-4">Olá, <?=$_SESSION['login']?></p>
+                    <p class="h4 mr-4">Olá, <?=$userName?></p>
                     <a href="../../Backend/exit.php" class="h4 nav-icon mx-3">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>

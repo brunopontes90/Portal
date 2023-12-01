@@ -4,6 +4,11 @@
     $connect = new Connect();
     $connectDatabase = $connect->Connection();
     $querySelect = $connect->SelectQuery();
+
+    if (!isset($_SESSION['ID'])) {
+        header('Location: ../../index.php');
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,7 +33,7 @@
         <div class="container-fluid">
             <div>
                 <?php
-                    include '../menu/menu.php';
+                    include '../menu/menu_tpl.php';
                 ?>
             </div>
             <div>

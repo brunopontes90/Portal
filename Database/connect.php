@@ -17,6 +17,14 @@ class Connect {
         }
     }
 
+    public function getUserInfo($userID){
+        $query = $this->conn->prepare("SELECT * FROM Pessoas WHERE ID = :id");
+        $query->bindParam(':id', $userID);
+        $query->execute();
+        
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function Login(){
         $query = $this->conn->prepare("SELECT ID, Nome, EAdmin FROM Pessoas WHERE Email = :email AND Senha = :senha");
         $query->bindParam(':email', $_POST['login']);
