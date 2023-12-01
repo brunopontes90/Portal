@@ -35,6 +35,11 @@ class Connect {
             return false;
         }
     }
+
+    public function SelectQuery(){
+        $sql = "SELECT * FROM Pessoas";
+        return $this->conn->query($sql)->fetchAll();
+    }
 }
 
 

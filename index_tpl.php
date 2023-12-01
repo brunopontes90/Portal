@@ -26,7 +26,7 @@
                 <input type="password" class="form-control" name="senha" placeholder="Senha" required autofocus>
             </div>
             <div class="mt-5">
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="login">Entrar</button>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="entrar">Entrar</button>
             </div>
         </form>
     </body>

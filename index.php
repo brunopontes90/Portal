@@ -11,7 +11,7 @@ if(isset($_POST['login'])){
     $login = $connect->Login($data);
 
     if($login){
-        header('Location: ../Pages/admin/admin.php');
+        header('Location: ../Pages/admin/admin_tpl.php');
         /*if($_SESSION['EAdmin'] = $result[0]->EAdmin == 1){
             header('Location: ../Pages/admin/admin.php');
         }else {
