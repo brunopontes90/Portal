@@ -2,7 +2,7 @@
 
 class Connect {
     public $hostname = 'mysql:host=127.0.0.2;';
-    public $useranme = 'root';
+    public $username = 'root';
     public $password = '901229';
     public $dbname = 'dbname=Portal';
 
@@ -10,7 +10,7 @@ class Connect {
 
     public function Connection(){
         try {
-            $this->conn = new PDO($this->hostname . $this->dbname, $this->useranme, $this->password);
+            $this->conn = new PDO($this->hostname . $this->dbname, $this->username, $this->password);
         } catch (PDOException $objErro) {
             echo 'SGBD Indisponivel: ' . $objErro -> getMessage();
             exit();
@@ -29,6 +29,7 @@ class Connect {
             session_start();
             $_SESSION['Email'] = $result[0]->Nome;
             $_SESSION['ID'] = $result[0]->ID;
+            $_SESSION['EAdmin'] = $result[0]->EAdmin;
             return true;
     
         }else{

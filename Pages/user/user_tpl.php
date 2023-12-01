@@ -45,7 +45,7 @@
                             <th scope="col">Email</th>
                         </tr>
                     </thead>
-                    <?php foreach($result as $row) {?>
+                    <?php foreach($querySelect as $row) {?>
                         <tbody>
                             <tr>
                                 <td scope="row"><?=$row['Nome'] . ' ' . $row['Sobrenome']?></td>

@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    include_once '../../Database/connect.php';
+    $connect = new Connect();
+    $connectDatabase = $connect->Connection();
+    $queryLogin = $connect->Login();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
