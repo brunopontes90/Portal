@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+    session_start();
+    include_once '../../Database/connect.php';
+    $connect = new Connect();
+    $connectDatabase = $connect->Connection();
+    $querySelect = $connect->SelectQuery();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -13,14 +19,9 @@
     </head>
     <body>
         <?php
-            require_once '../../Database/connect.php';
-
-            $result = array();
-            $sql = "SELECT * FROM Pessoas";
-
-            // Verifique se $connect_bank está definido
-            if (isset($connect_bank)) {
-                $result = $connect_bank->query($sql)->fetchAll();
+            if(isset($_SESSION['msg'])){
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
             }
         ?>
         <div class="container-fluid">
