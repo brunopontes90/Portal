@@ -45,11 +45,6 @@ class Connect {
         }
     }
 
-    public function SelectQuery(){
-        $sql = "SELECT * FROM Pessoas";
-        return $this->conn->query($sql)->fetchAll();
-    }
-
     public function EditQuery($id){
         if(empty($id)){
             return null;

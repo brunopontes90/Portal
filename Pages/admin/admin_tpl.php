@@ -1,15 +1,16 @@
 <?php 
     session_start();
-    include_once '../../Database/connect.php';
-    $connect = new Connect();
-    $connectDatabase = $connect->Connection();
-    $querySelect = $connect->SelectQuery();
+    //require_once '../../Database/connect.php';
+    include_once __DIR__ . '/../../Database/querys/select.php';
+    $select = new Select();
+    $querySelect = $select->getAllUsers();
 
     if (!isset($_SESSION['ID'])) {
         header('Location: ../../index.php');
         exit();
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
