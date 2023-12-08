@@ -1,18 +1,25 @@
 <?php
     session_start();
     ob_start();
-    include_once '../../Database/connect.php';
+    include_once __DIR__ . '/../../Database/querys/update.php';
     $id = filter_input(INPUT_GET, "ID", FILTER_SANITIZE_NUMBER_INT);
 
-    $connect = new Connect();
+    $connect = new Update();
     $connectDatabase = $connect->Connection();
-    $row_user = $connect->EditQuery($id);
+    $row_user = $connect->editUser($id);
 
-    /*if($row_user == null){
-    $_SESSION['msg'] = "<p style='color: #FF0000;'>Erro; Usuário não encontrado</p>";
-    header("Location: ../admin/admin_tpl.php");
-    exit();
-    }*/
+    if($row_user == null){
+        $_SESSION['msg'] = "<p style='color: #FF0000;'>Erro; Usuário não encontrado</p>";
+        header("Location: ../admin/admin_tpl.php");
+        exit();
+    }
+
+    $data =  filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+    // VERIFICA SE O USER CLICOU NO BOTAO
+    if(!empty($data['updateUser'])){
+        $connect->UpdateQuery($data, $id);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,14 +39,10 @@
         <h1 class="text-uppercase text-center mt-5 font-weight-bold">Editar Usuário</h1>
     </div>
     <?php
-        // RECEBER OS DADOS DO FORMULARIO
-        $data =  filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
-        // VERIFICA SE O USER CLICOU NO BOTAO
-        if(!empty($data['updateUser'])){
-            $connect->UpdateQuery($data, $id);
-        }
-        
+        if (isset($_SESSION['msg'])) {
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        }        
     ?>
     <form id="edit-user" class="form shadow-lg p-3 mb-5 bg-white rounded" method="POST" action="">
         <div class="mt-3">
