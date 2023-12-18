@@ -1,6 +1,5 @@
 <?php 
     session_start();
-    //require_once '../../Database/connect.php';
     include_once __DIR__ . '/../../Database/querys/select.php';
     $select = new Select();
     $querySelect = $select->getAllUsers();
