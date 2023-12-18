@@ -1,6 +1,6 @@
 <?php
+    ob_clean();
     session_start();
-    ob_start();
     include_once __DIR__ . '/../../Database/querys/update.php';
     $id = filter_input(INPUT_GET, "ID", FILTER_SANITIZE_NUMBER_INT);
 
@@ -12,13 +12,6 @@
         $_SESSION['msg'] = "<p style='color: #FF0000;'>Erro; Usuário não encontrado</p>";
         header("Location: ../admin/admin_tpl.php");
         exit();
-    }
-
-    $data =  filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
-    // VERIFICA SE O USER CLICOU NO BOTAO
-    if(!empty($data['updateUser'])){
-        $connect->UpdateQuery($data, $id);
     }
 ?>
 <!DOCTYPE html>
@@ -39,10 +32,11 @@
         <h1 class="text-uppercase text-center mt-5 font-weight-bold">Editar Usuário</h1>
     </div>
     <?php
-        if (isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
-        }        
+        $data =  filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        if(!empty($data['updateUser'])){
+            $connect->UpdateQuery($data, $id);
+            header('../admin/admin_tpl.php');
+        }
     ?>
     <form id="edit-user" class="form shadow-lg p-3 mb-5 bg-white rounded" method="POST" action="">
         <div class="mt-3">
@@ -54,12 +48,12 @@
             <input class="form-control" type="text" name="Sobrenome" id="Sobrenome" value="<?=$row_user['Sobrenome']?>" placeholder="Sobrenome" required />
         </div>
         <div class="form-group">
-            <label class="label">Nascimento:</label>
-            <input class="form-control" type="text" name="Nascimento" id="Nascimento" value="<?=$row_user['DataNascimento']?>" placeholder="YYYY/MM/DD" required />
-        </div>
-        <div class="form-group">
             <label class="label">Genero:</label>
             <input class="form-control" type="text" name="Genero" id="Genero" value="<?=$row_user['Genero']?>" placeholder="Genero" required />
+        </div>
+        <div class="form-group">
+            <label class="label">Endereço:</label>
+            <input class="form-control" type="text" name="Endereco" id="Endereco" value="<?=$row_user['Endereco']?>" placeholder="Endereço" required />
         </div>
         <div class="form-group">
             <label class="label">Telefone:</label>

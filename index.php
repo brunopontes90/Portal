@@ -1,6 +1,6 @@
 <?php
-session_start();
 ob_start();
+session_start();
 include_once './Database/connect.php';
 header("Location: ./index_tpl.php");
 $connect = new Connect();
