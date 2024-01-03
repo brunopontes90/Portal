@@ -81,7 +81,7 @@
                 <?php }?>
             </table>
         <div>
-            <button class="botao-flutuante" onclick="alert('Adicionado')">+</button>
+            <a href="../create/create_tpl.php" class="botao-flutuante">+</a>
         </div>
     </div>
 </body>
