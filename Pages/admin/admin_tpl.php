@@ -72,9 +72,9 @@
                         <td><?=$row['EAdmin'] == 1 ? 'Sim': 'Não'?></td>
                         <td><?=$row['Observacoes']?></td>
                         <td>
-                        <a href="../update/update_tpl.php?ID=<?=$row['ID']?>" class="btn-edit fas fa-edit"></a>
+                            <a href="../update/update_tpl.php?ID=<?=$row['ID']?>" class="btn-edit fas fa-edit"></a>
 
-                            <button class="btn btn-danger" onclick="alert('Excluido')">Excluir</button>
+                            <a href="../../Backend/delete.php?ID=<?=$row['ID']?>" class="btn-delete fas fa-trash-alt"></a>
                         </td>
                     </tr>
                     </tbody>
