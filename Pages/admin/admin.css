@@ -15,7 +15,6 @@
 }
 
 .botao-flutuante:hover {
-    color: orangered;
+    color: white;
     text-decoration: none;
-    background-color: black;
 }
