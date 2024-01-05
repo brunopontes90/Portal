@@ -47,25 +47,29 @@
             <label class="label">Sobrenome:</label>
             <input class="form-control" type="text" name="Sobrenome" id="Sobrenome" placeholder="Sobrenome" required />
         </div>
+        <div class="form-group mt-3">
+            <label class="label">Nascimento:</label>
+            <input class="form-control" type="date" name="DataNascimento" id="DataNascimento" placeholder="YYYY-DD-MM" required />
+        </div>
         <div class="form-group">
             <label class="label">Genero:</label>
             <input class="form-control" type="text" name="Genero" id="Genero" placeholder="Genero" required />
         </div>
         <div class="form-group">
             <label class="label">Endereço:</label>
-            <input class="form-control" type="text" name="Endereco" id="Endereco" placeholder="Endereço" required />
+            <input class="form-control" type="text" name="Endereco" id="Endereco" placeholder="Rua tal" required />
         </div>
         <div class="form-group">
             <label class="label">Telefone:</label>
-            <input class="form-control" type="text" name="telefone" id="telefone" placeholder="Telefone" required />
+            <input class="form-control" type="text" name="telefone" id="telefone" placeholder="11912345678" required />
         </div>
         <div class="form-group">
             <label class="label">Email:</label>
-            <input class="form-control" type="text" name="email" id="email" placeholder="Email" required />
+            <input class="form-control" type="text" name="email" id="email" placeholder="email@email.com" required />
         </div>
         <div class="form-group">
             <label class="label">Admin:</label>
-            <input class="form-control" type="text" name="admin" id="admin" placeholder="Admin" required />
+            <input class="form-control" type="number" name="admin" id="admin" placeholder="0 ou 1" required />
         </div>
         <div class="form-group">
             <label class="label">Observação:</label>
