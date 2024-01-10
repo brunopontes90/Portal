@@ -1,18 +1,11 @@
 <?php
-    /*ob_clean();
     session_start();
-    include_once __DIR__ . '/../../Database/querys/update.php';
-    $id = filter_input(INPUT_GET, "ID", FILTER_SANITIZE_NUMBER_INT);
+    ob_clean();
+    include_once __DIR__ . '/../../Database/querys/create.php';
 
-    $connect = new Update();
+    $connect = new Create();
     $connectDatabase = $connect->Connection();
-    $row_user = $connect->editUser($id);
-
-    if($row_user == null){
-        $_SESSION['msg'] = "<p style='color: #FF0000;'>Erro; Usuário não encontrado</p>";
-        header("Location: ../admin/admin_tpl.php");
-        exit();
-    }*/
+    //$row_user = $connect->CreateQyuery($dados);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,11 +25,10 @@
         <h1 class="text-uppercase text-center mt-5 font-weight-bold">Criar Usuário</h1>
     </div>
     <?php
-        /*$data =  filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        if(!empty($data['updateUser'])){
-            $connect->UpdateQuery($data, $id);
-            header('../admin/admin_tpl.php');
-        }*/
+        $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        if(!empty($data['CreateUser'])){
+            $row_user = $connect->CreateQyuery($data);
+        }
     ?>
     <form id="edit-user" class="form shadow-lg p-3 mb-5 bg-white rounded" method="POST" action="">
         <div class="mt-3">
@@ -49,7 +41,7 @@
         </div>
         <div class="form-group mt-3">
             <label class="label">Nascimento:</label>
-            <input class="form-control" type="date" name="DataNascimento" id="DataNascimento" placeholder="YYYY-DD-MM" required />
+            <input class="form-control" type="text" name="DataNascimento" id="DataNascimento" placeholder="YYYY-DD-MM" required />
         </div>
         <div class="form-group">
             <label class="label">Genero:</label>
@@ -77,10 +69,10 @@
         </div>
         <div class="form-group">
             <label class="label">Senha:</label>
-            <input class="form-control" type="text" name="senha" id="senha" placeholder="Senha" required />
+            <input class="form-control" type="password" name="senha" id="senha" placeholder="Digite a Senha" required />
         </div>
         <div class="modal-footer">
-            <input type="submit" class="btn btn-primary" value="Salvar mudanças" name="updateUser"></input>
+            <input type="submit" class="btn btn-primary" value="Salvar mudanças" name="CreateUser"></input>
             <a href="../admin/admin_tpl.php" class="btn btn-secondary">Fechar</a>
         </div>
     </form>
