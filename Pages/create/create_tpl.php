@@ -4,8 +4,6 @@
     include_once __DIR__ . '/../../Database/querys/create.php';
 
     $connect = new Create();
-    $connectDatabase = $connect->Connection();
-    //$row_user = $connect->CreateQyuery($dados);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

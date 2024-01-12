@@ -25,16 +25,16 @@ class Create extends Connect{
             $query_create_user  = "INSERT INTO Pessoas (Nome, Sobrenome, DataNascimento, Genero, Endereco, Telefone, Email, EAdmin, Observacoes, Senha) VALUES (:nome, :sobrenome, :datanascimento, :genero, :endereco, :telefone, :email, :eadmin, :obs, :senha)";
             
             $create_user = $this->conn->prepare($query_create_user);
-            $create_user->bindParam(':nome', $data[':nome']);
-            $create_user->bindParam(':sobrenome', $data[':sobrenome']);
-            $create_user->bindParam(':datanascimento', $data[':datanascimento']);
-            $create_user->bindParam(':genero', $data[':genero']);
-            $create_user->bindParam(':endereco', $data[':endereco']);
-            $create_user->bindParam(':telefone', $data[':telefone']);
-            $create_user->bindParam(':email', $data[':email']);
-            $create_user->bindParam(':eadmin', $data[':eadmin']);
-            $create_user->bindParam(':obs', $data[':obs']);
-            $create_user->bindParam(':senha', $data[':senha']);
+            $create_user->bindParam(':nome', $data['Nome']);
+            $create_user->bindParam(':sobrenome', $data['Sobrenome']);
+            $create_user->bindParam(':datanascimento', $data['DataNascimento']);
+            $create_user->bindParam(':genero', $data['Genero']);
+            $create_user->bindParam(':endereco', $data['Endereco']);
+            $create_user->bindParam(':telefone', $data['telefone']);
+            $create_user->bindParam(':email', $data['email']);
+            $create_user->bindParam(':eadmin', $data['admin']);
+            $create_user->bindParam(':obs', $data['observacao']);
+            $create_user->bindParam(':senha', $data['senha']);
 
             $create_user->execute();
 
